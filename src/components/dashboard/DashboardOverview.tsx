@@ -61,7 +61,7 @@ const DashboardOverview = () => {
     <div className="space-y-6">
       {/* Welcome Section */}
       <div>
-        <h2 className="text-3xl font-bold">Welcome back, {currentUser?.name}!</h2>
+        <h2 className="text-lg sm:text-xl font-bold">Welcome back, {currentUser?.name}!</h2>
         <p className="text-muted-foreground">Here's what's happening with your projects today.</p>
       </div>
 

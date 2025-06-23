@@ -61,14 +61,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setUser(userData);
       
       toast.success("Welcome back!", {
-        description: "You have successfully logged in.",
+        description: (
+          <span className="text-black">
+            You have successfully logged in.
+          </span>
+        ),
       });
       
       return true;
     } catch (error: any) {
       console.error('Login error:', error);
       toast.error("Login failed", {
-        description: error.response?.data?.message || "Invalid credentials",
+        description: (
+          <span className="text-black">
+            { error.response?.data?.message || "Invalid credentials" }
+          </span>
+        ),
       });
       return false;
     } finally {
@@ -87,14 +95,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setUser(userData);
       
       toast.success("Account created!", {
-        description: "Welcome to the task management system.",
+        description: (
+          <span className="text-black">
+            Welcome to the task management system.
+          </span>
+        ),
       });
       
       return true;
     } catch (error: any) {
       console.error('Registration error:', error);
       toast.error("Registration failed", {
-        description: error.response?.data?.message || "Failed to create account",
+        description: (
+          <span className="text-black">
+            { error.response?.data?.message || "Failed to create account" }
+          </span>
+        ),
       });
       return false;
     } finally {
@@ -111,8 +127,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       localStorage.removeItem('auth_token');
       localStorage.removeItem('user_data');
       setUser(null);
-      toast.success("Logged out", {
-        description: "You have been successfully logged out.",
+      toast.success("Logged out",  {
+        description: (
+          <span className="text-black">
+            You have been successfully logged out.
+          </span>
+        ),
       });
     }
   };

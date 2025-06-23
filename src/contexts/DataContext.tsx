@@ -52,8 +52,11 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     } catch (error) {
       console.error('Failed to fetch projects:', error);
       toast.error("Error", {
-        description: "Failed to load projects",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            Failed to load projects
+          </span>
+        ),
       });
     } finally {
       setIsLoading(false);
@@ -68,8 +71,11 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     } catch (error) {
       console.error('Failed to fetch tasks:', error);
       toast.error("Error", {
-        description: "Failed to load tasks",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            Failed to load tasks
+          </span>
+        ),
       });
     } finally {
       setIsLoading(false);
@@ -81,14 +87,21 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
       const response = await projectsAPI.create(data);
       setProjects(prev => [...prev, response.data.project]);
       toast.success("Success", {
-        description: "Project created successfully",
+        description: (
+          <span className="text-black">
+            Project created successfully
+          </span>
+        ),
       });
       return true;
     } catch (error: any) {
       console.error('Failed to create project:', error);
       toast.error("Error", {
-        description: error.response?.data?.message || "Failed to create project",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            {error.response?.data?.message || "Failed to create project"}
+          </span>
+        ),
       });
       return false;
     }
@@ -99,14 +112,21 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
       const response = await projectsAPI.update(id, data);
       setProjects(prev => prev.map(p => p.id === id ? response.data.project : p));
       toast.success("Success", {
-        description: "Project updated successfully",
+        description: (
+          <span className="text-black">
+            Project updated successfully
+          </span>
+        ),
       });
       return true;
     } catch (error: any) {
       console.error('Failed to update project:', error);
       toast.error("Error", {
-        description: error.response?.data?.message || "Failed to update project",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            {error.response?.data?.message || "Failed to update project"}
+          </span>
+        ),
       });
       return false;
     }
@@ -124,8 +144,11 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     } catch (error: any) {
       console.error('Failed to delete project:', error);
       toast.error("Error", {
-        description: error.response?.data?.message || "Failed to delete project",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            {error.response?.data?.message || "Failed to delete project"}
+          </span>
+        ),
       });
       return false;
     }
@@ -136,14 +159,21 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
       const response = await tasksAPI.create(data);
       setTasks(prev => [...prev, response.data.task]);
       toast.success("Success", {
-        description: "Task created successfully",
+        description: (
+          <span className="text-black">
+            Task created successfully
+          </span>
+        ),
       });
       return true;
     } catch (error: any) {
       console.error('Failed to create task:', error);
       toast.error("Error", {
-        description: error.response?.data?.message || "Failed to create task",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            {error.response?.data?.message || "Failed to create task"}
+          </span>
+        ),
       });
       return false;
     }
@@ -160,8 +190,11 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     } catch (error: any) {
       console.error('Failed to update task:', error);
       toast.error("Error", {
-        description: error.response?.data?.message || "Failed to update task",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            {error.response?.data?.message || "Failed to update task"}
+          </span>
+        ),
       });
       return false;
     }
@@ -178,8 +211,11 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     } catch (error: any) {
       console.error('Failed to delete task:', error);
       toast.error("Error", {
-        description: error.response?.data?.message || "Failed to delete task",
-        variant: "destructive",
+        description: (
+          <span className="text-black">
+            {error.response?.data?.message || "Failed to delete task"}
+          </span>
+        ),
       });
       return false;
     }

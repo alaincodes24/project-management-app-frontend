@@ -89,7 +89,7 @@ export function AppSidebar() {
         <div className="mt-auto p-4 border-t">
           <Button
             variant="ghost"
-            className="w-full justify-start"
+            className="w-auto"
             onClick={handleLogout}
           >
             <LogOut className="h-4 w-4" />

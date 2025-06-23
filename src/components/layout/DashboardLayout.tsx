@@ -26,7 +26,7 @@ const DashboardLayout = () => {
           <header className="h-14 flex items-center border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
             <SidebarTrigger />
             <div className="ml-4">
-              <h1 className="text-lg font-semibold">Task Management System</h1>
+              <h1 className="sm:text-xl text-lg font-semibold">Task Management System</h1>
             </div>
           </header>
           <main className="flex-1 p-6">
